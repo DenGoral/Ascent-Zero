@@ -4,13 +4,16 @@
 [ext_resource type="FontFile" uid="uid://b55cavvta3opt" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_j50j5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lukxu"]
-line_spacing = 11.92
+line_spacing = 25.0
 font = ExtResource("2_j50j5")
+font_size = 30
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1qlb7"]
 font = ExtResource("2_j50j5")
+font_size = 43
+font_color = Color(1, 1, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
@@ -22,8 +25,8 @@ _toastLabel = NodePath("ToastLabel")
 [node name="HeightLabel" type="Label" parent="." unique_id=1963942234]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 160.0
-offset_bottom = 39.0
+offset_right = 240.0
+offset_bottom = 120.0
 text = "Loading...
 Loading..."
 label_settings = SubResource("LabelSettings_lukxu")
@@ -33,10 +36,10 @@ uppercase = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -72.0
-offset_top = 16.0
-offset_right = 72.0
-offset_bottom = 39.0
+offset_left = -192.0
+offset_top = 32.0
+offset_right = 195.0
+offset_bottom = 76.0
 grow_horizontal = 2
 text = "Loading..."
 label_settings = SubResource("LabelSettings_1qlb7")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cav5gtdbibydv"]
+
+[ext_resource type="Script" uid="uid://b4aia4xndhatj" path="res://Scripts/PauseButtonScene.cs" id="1_bjphu"]
+[ext_resource type="Texture2D" uid="uid://cahjpu5db3myl" path="res://Assets/Menu/Buttons/Pause.png" id="1_e65a5"]
+
+[node name="PauseButtonScene" type="Node" unique_id=69483666 node_paths=PackedStringArray("_button")]
+script = ExtResource("1_bjphu")
+_button = NodePath("CanvasLayer/Pause")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=20792559]
+layer = 5
+
+[node name="Pause" type="TextureButton" parent="CanvasLayer" unique_id=413271790]
+visible = false
+z_index = 15
+offset_left = 1040.0
+offset_top = 8.0
+offset_right = 1147.0
+offset_bottom = 120.0
+focus_mode = 0
+texture_normal = ExtResource("1_e65a5")
+stretch_mode = 0

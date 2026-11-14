@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dlo0vvswpewmc" path="res://Assets/Menu/Buttons/Achievements.png" id="6_1363l"]
 [ext_resource type="AudioStream" uid="uid://dke4m4lndt4ds" path="res://Assets/Sounds/UI_Sounds/button_click.mp3" id="7_h171x"]
 [ext_resource type="AudioStream" uid="uid://d2flh0eewlxxy" path="res://Assets/Sounds/UI_Sounds/button_hover.mp3" id="8_n6ygf"]
+[ext_resource type="PackedScene" uid="uid://cav5gtdbibydv" path="res://Scenes/PauseButtonScene.tscn" id="9_425uk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lukxu"]
 shader = ExtResource("2_425uk")
@@ -29,6 +30,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_jmijv"]
 font = ExtResource("3_mys0b")
 font_size = 25
+font_color = Color(1, 0, 0, 1)
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
 
@@ -46,13 +48,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1272641114 node_paths=PackedStringArray("_resumeButton", "_settingsButton", "_achivementsButton", "_clickPlayer", "_hoverPlayer")]
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1272641114 node_paths=PackedStringArray("_resumeButton", "_settingsButton", "_achivementsButton", "_pauseButton", "_clickPlayer", "_hoverPlayer")]
 process_mode = 3
 layer = 10
 script = ExtResource("1_lptsj")
 _resumeButton = NodePath("CenterContainer/Control/Resume")
 _settingsButton = NodePath("CenterContainer/Control/Settings")
 _achivementsButton = NodePath("CenterContainer/Control/Anchivements")
+_pauseButton = NodePath("PauseButtonScene")
 _clickPlayer = NodePath("ClickSound")
 _hoverPlayer = NodePath("HoverSound")
 
@@ -117,6 +120,7 @@ texture_normal = ExtResource("5_pmvjn")
 stretch_mode = 0
 
 [node name="Anchivements" type="TextureButton" parent="PauseMenu/CenterContainer/Control" unique_id=468482617]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -144,13 +148,12 @@ label_settings = SubResource("LabelSettings_1qlb7")
 uppercase = true
 
 [node name="SettingsLabel" type="Label" parent="PauseMenu/CenterContainer/Control" unique_id=1409171811]
-visible = false
 layout_mode = 0
-offset_left = -398.0
-offset_top = 125.0
-offset_right = -204.0
-offset_bottom = 165.0
-text = "Settings"
+offset_left = -433.0
+offset_top = 105.0
+offset_right = -173.0
+offset_bottom = 145.0
+text = "coming SOON"
 label_settings = SubResource("LabelSettings_jmijv")
 uppercase = true
 
@@ -170,3 +173,5 @@ stream = ExtResource("7_h171x")
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="PauseMenu" unique_id=83942491]
 stream = ExtResource("8_n6ygf")
+
+[node name="PauseButtonScene" parent="PauseMenu" unique_id=69483666 instance=ExtResource("9_425uk")]

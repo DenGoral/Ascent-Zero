@@ -8,6 +8,8 @@ public partial class PauseMenu : CanvasLayer
 	[Export] private TextureButton _settingsButton;
 	[Export] private TextureButton _achivementsButton;
 
+	// the pause button scene instanced in Main
+	[Export] private PauseButtonScene _pauseButton;
 
 	// sound fx
 	[Export] private AudioStreamPlayer _clickPlayer;
@@ -41,6 +43,8 @@ public partial class PauseMenu : CanvasLayer
 
 		_settingsButton.MouseEntered += OnHover;
 		_achivementsButton.MouseEntered += OnHover;
+
+		_pauseButton.PauseRequested += Pause;
 	}
 
 	private void SetupButtonAnimation(TextureButton button)
@@ -105,6 +109,8 @@ public partial class PauseMenu : CanvasLayer
 
 	private void Pause()
 	{
+		if (GetTree().Paused) return;
+
 		ResetButtons();
 		GetTree().Paused = true;
 		Visible = true;

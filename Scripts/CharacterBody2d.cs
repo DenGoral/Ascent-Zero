@@ -2,9 +2,12 @@ using Godot;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
+	// const variables
 	private const float Speed = 200.0f;
 	private const float JumpVelocity = -300.0f;
 
+	private CollectiblesHud _collectiblesHud;
+	
 	[Export] private AnimatedSprite2D _animatedSprite;
 	[Export] private Camera2D _camera2d;
 
@@ -13,6 +16,19 @@ public partial class CharacterBody2d : CharacterBody2D
 	[Export] private AudioStreamPlayer _music;
 
 	private float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+
+	// -- PUBLIC FUNCTIONS -- //
+	public int Collected = 0;
+
+	public void AddCollectible(int amount)
+	{
+		Collected += amount;
+		
+		_collectiblesHud = GetNode<CollectiblesHud>("CollectiblesHud");
+		_collectiblesHud.UpdateLabel(Collected);
+		
+		GD.Print($"Collected: {Collected}");
+	}
 
 	public override void _Ready()
 	{
@@ -42,8 +58,6 @@ public partial class CharacterBody2d : CharacterBody2D
 		float directionX = 0f;
 		if (Input.IsActionPressed("ui_left")) directionX -= 1f;
 		if (Input.IsActionPressed("ui_right")) directionX += 1f;
-
-		GD.Print($"Is on floor: {IsOnFloor()}");
 
 		velocity.X = directionX * Speed;
 
@@ -80,7 +94,6 @@ public partial class CharacterBody2d : CharacterBody2D
 			_animatedSprite.Play(animationName);
 		}
 	}
-	
 	
 	private async void EnableWithDelay()
 	{
