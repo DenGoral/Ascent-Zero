@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://s3o8w1y0aeel"]
+
+[ext_resource type="FontFile" uid="uid://b55cavvta3opt" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="1_lvv5v"]
+[ext_resource type="Script" uid="uid://b21jpk57n6wrd" path="res://Scripts/CollectiblesHud.cs" id="1_ofsuj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofsuj"]
+line_spacing = 25.0
+font = ExtResource("1_lvv5v")
+font_size = 30
+font_color = Color(0.87265086, 0, 0.22086352, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CollectiblesHud" type="CanvasLayer" unique_id=1005235602 node_paths=PackedStringArray("_collectedLabel")]
+script = ExtResource("1_ofsuj")
+_collectedLabel = NodePath("CollectedLabel")
+
+[node name="CollectedLabel" type="Label" parent="." unique_id=1764627069]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_top = 10.0
+offset_bottom = 114.0
+grow_horizontal = 0
+text = "Apples: 0"
+label_settings = SubResource("LabelSettings_ofsuj")
+uppercase = true
