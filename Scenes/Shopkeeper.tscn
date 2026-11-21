@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://daltvvo04w7y2"]
+
+[ext_resource type="Script" uid="uid://8816wmp1axac" path="res://Scripts/Shopkeeper.cs" id="1_gcy4u"]
+[ext_resource type="Texture2D" uid="uid://y7324ckhxlra" path="res://Assets/shopkepper.png" id="1_nfc2c"]
+[ext_resource type="FontFile" uid="uid://bd78cko2m2trx" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_fp8hd"]
+[ext_resource type="FontFile" uid="uid://b55cavvta3opt" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="4_ltln8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lukxu"]
+size = Vector2(245, 256)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lukxu"]
+bg_color = Color(0, 0, 0, 0.5058824)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 18
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmijv"]
+font = ExtResource("3_fp8hd")
+font_size = 35
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_as201"]
+bg_color = Color(0.5628068, 1.4439225e-06, 4.3317675e-07, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4qs1"]
+line_spacing = 2.95
+font = ExtResource("4_ltln8")
+font_size = 28
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Shopkeeper" type="Node2D" unique_id=256259299 node_paths=PackedStringArray("_area", "_prompt", "_shopUI", "_closeButton")]
+script = ExtResource("1_gcy4u")
+_area = NodePath("Area2D")
+_prompt = NodePath("Prompt")
+_shopUI = NodePath("Shop")
+_closeButton = NodePath("Shop/ShopPanel/MarginContainer/VBoxContainer/HBoxContainer/Close")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=804288928]
+texture = ExtResource("1_nfc2c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1748119395]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1214433805]
+position = Vector2(-74.5, 8)
+shape = SubResource("RectangleShape2D_lukxu")
+
+[node name="Prompt" type="Label" parent="." unique_id=1610556184]
+visible = false
+offset_left = -296.0
+offset_top = -16.0
+offset_right = 167.0
+offset_bottom = 20.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lukxu")
+text = "Press [E] to talk"
+label_settings = SubResource("LabelSettings_jmijv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shop" type="CanvasLayer" parent="." unique_id=16139161]
+
+[node name="ShopPanel" type="PanelContainer" parent="Shop" unique_id=410930611]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -226.0
+offset_right = 384.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Shop/ShopPanel" unique_id=2108933497]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/ShopPanel/MarginContainer" unique_id=1080163755]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/ShopPanel/MarginContainer/VBoxContainer" unique_id=1491741307]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Close" type="Button" parent="Shop/ShopPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=201447749]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_fp8hd")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_as201")
+text = "CLOSE"
+
+[node name="Title" type="Label" parent="Shop/ShopPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=292531151]
+layout_mode = 2
+size_flags_vertical = 0
+text = "UPGRADES SHOP"
+label_settings = SubResource("LabelSettings_m4qs1")
+horizontal_alignment = 1
+vertical_alignment = 1
