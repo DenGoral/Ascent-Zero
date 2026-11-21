@@ -6,7 +6,7 @@ public partial class HeightTracker : Node
 	[Signal] public delegate void HeightChangedEventHandler(float currentMeters, float bestMeters);
 	[Signal] public delegate void MilestoneReachedEventHandler(int meters);
 
-	[Export] private Node2D _target; // the player (node in "Main" scene)
+	[Export] private Node2D _target; // the player
 	[Export] private float _pixelsPerMeter = 50f; // hopw many pixels play needs to pass for 1 meter
 	[Export] private int[] _milestones = { 100 }; // i can add more in inspector for HeightTracker
 
